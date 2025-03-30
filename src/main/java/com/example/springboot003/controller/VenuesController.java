@@ -65,4 +65,15 @@ public class VenuesController {
                 .build();
         return ResponseEntity.ok(response);
     }
+
+    @DeleteMapping("/{venue-id}")
+    public ResponseEntity<apiResponse<Venue>> deleteVenueById(@PathVariable("venue-id") Integer venueId){
+        apiResponse<Venue> response = apiResponse.<Venue>builder()
+                .message("The venue has been successfully deleted.")
+                .payload(venueService.deleteByid(venueId))
+                .status(HttpStatus.CREATED)
+                .time(LocalDateTime.now())
+                .build();
+        return ResponseEntity.ok(response);
+    }
 }

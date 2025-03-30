@@ -39,4 +39,11 @@ public interface VenueRepository {
     @ResultMap("venueMapper")
     public Venue updateVenue(Integer venueId, @Param("request") VenueRequest venueRequest);
 
+
+    @Select("""
+    DELETE FROM venues WHERE venue_id = #{venueId} returning *;
+    """)
+    @ResultMap("venueMapper")
+    public Venue deleteVenueById(@Param("venueId") Integer venueId);
+
 }

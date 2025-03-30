@@ -35,4 +35,9 @@ public class ImplVenue implements VenueService {
     public Venue updateVenue(Integer venueId, VenueRequest venueRequest) {
         return venueRepository.updateVenue(venueId, venueRequest);
     }
+
+    @Override
+    public Venue deleteByid(Integer venueId) {
+        return venueRepository.deleteVenueById(venueId);
+    }
 }
