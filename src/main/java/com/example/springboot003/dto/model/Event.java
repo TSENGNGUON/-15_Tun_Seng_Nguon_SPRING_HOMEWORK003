@@ -4,6 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Data
@@ -11,8 +12,8 @@ import java.util.List;
 @NoArgsConstructor
 public class Event {
     private Integer eventId;
-    private Integer venueId;
     private String eventName;
-    private String eventDate;
-    private List<Integer> venueIds;
+    private String publishDate;
+    private Venue venue;
+    private List<Attendee> attendees;
 }

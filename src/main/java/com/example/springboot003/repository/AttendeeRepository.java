@@ -44,4 +44,21 @@ public interface AttendeeRepository {
 """)
     @ResultMap("attendeeMapper")
     Attendee deleteAttendee(Integer id);
+
+
+    @Select("""
+   SELECT a.* FROM
+   event_attendee ea
+   INNER JOIN public.attendees a
+     ON a.attendee_id = ea.attendee_id
+     WHERE event_id = #{eventId};                                  
+""")
+    @ResultMap("attendeeMapper")
+    List<Attendee> getAttendeeByEventId(Integer eventId);
+
+
+    @Insert("""
+    INSERT INTO event_attendee(event_id,attendee_id) VALUES (#{eventId},#{attendeeId});
+""")
+    void addEventIdAndAttendeeId(Integer eventId, Integer attendeeId);
 }

@@ -4,10 +4,12 @@ import com.example.springboot003.dto.model.Attendee;
 import com.example.springboot003.dto.request.AttendeeRequest;
 import com.example.springboot003.repository.AttendeeRepository;
 import com.example.springboot003.service.AttendeeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Slf4j
 @Service
 public class ImplAttendee implements AttendeeService {
     private final AttendeeRepository attendeeRepository;
@@ -40,4 +42,8 @@ public class ImplAttendee implements AttendeeService {
     public Attendee deleteAttendee(Integer id) {
         return attendeeRepository.deleteAttendee(id);
     }
+
+
+
+
 }
